@@ -41,7 +41,7 @@
 		'links'=>$this->breadcrumbs,
 	)); ?><!-- breadcrumbs -->
 
-	<?php $this->widget('application.extensions.Chat', array('name'=>'html')); ?>
+	<?php $this->widget('Chat'); ?>
 
 	<?php echo $content; ?>
 
