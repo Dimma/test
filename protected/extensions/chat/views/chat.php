@@ -1,4 +1,4 @@
-<div id="arrow">></div>
+<div id="arrow"><</div>
 <div id="chatWindow">
 	<div class="chatInput">
 		<?php foreach ($this->getChatMessages() as $message) : ?>
