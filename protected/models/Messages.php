@@ -12,7 +12,8 @@ class Messages extends CActiveRecord
 
 	/**
 	 * Returns the static model of the specified AR class.
-	 * @return CActiveRecord the static model class
+	 * @access	public
+	 * @return	CActiveRecord the static model class
 	 */
 	public static function model($className = __CLASS__)
 	{
@@ -20,7 +21,9 @@ class Messages extends CActiveRecord
 	}
 
 	/**
-	 * @return string the associated database table name
+	 * Get table name
+	 * @access	public
+	 * @return	string	the associated database table name
 	 */
 	public function tableName()
 	{
@@ -28,7 +31,9 @@ class Messages extends CActiveRecord
 	}
 
 	/**
-	 * @return array validation rules for model attributes.
+	 * Rules
+	 * @access	public
+	 * @return	array	validation rules for model attributes.
 	 */
 	public function rules()
 	{
@@ -41,7 +46,9 @@ class Messages extends CActiveRecord
 	}
 
 	/**
-	 * @return array customized attribute labels (name => label)
+	 * Labels of atributes
+	 * @access	public
+	 * @return	array	customized attribute labels (name => label)
 	 */
 	public function attributeLabels()
 	{
@@ -54,10 +61,12 @@ class Messages extends CActiveRecord
 	}
 
 	/**
+	 * Get messages
+	 * @access	public
 	 * @param	integer	the maximum number of messages that should be returned
 	 * @return	array
 	 */
-	public function findMessages($limit = 15)
+	public function getMessages($limit = 15)
 	{
 		return array_reverse($this->findAll(array(
 			'order'		=> 't.create_time DESC',
@@ -66,6 +75,8 @@ class Messages extends CActiveRecord
 	}
 
 	/**
+	 * Insert message
+	 * @access	public
 	 * @param	string	$message
 	 */
 	public function addMessage($message)
@@ -74,7 +85,7 @@ class Messages extends CActiveRecord
 		$command		= Yii::app()->db->createCommand();
 		$command->insert('tbl_chat', array(
 			'author'		=> ($isUserLoggedOn ? CHtml::encode(Yii::app()->user->name) : 'Guest'),
-			'content'		=> CHtml::encode($message),
+			'content'		=> $message,
 			'create_time'	=> time(),
 		));
 	}

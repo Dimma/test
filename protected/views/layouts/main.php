@@ -14,6 +14,13 @@
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/main.css" />
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/form.css" />
 
+	<!-- Chat style and script -->
+	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/chat.css" />
+	<script>
+		var baseUrl = '<?php echo Yii::app()->request->baseUrl; ?>/index.php';
+	</script>
+	<?php Yii::app()->getClientScript()->registerScriptFile(Yii::app()->request->baseUrl.'/js/chat.js'); ?>
+
 	<title><?php echo CHtml::encode($this->pageTitle); ?></title>
 </head>
 
@@ -41,9 +48,11 @@
 		'links'=>$this->breadcrumbs,
 	)); ?><!-- breadcrumbs -->
 
-	<?php $this->widget('Chat'); ?>
-
 	<?php echo $content; ?>
+
+	<div id="chat">
+		<?php $this->widget('ext.chat.Chat'); ?>
+	</div>
 
 	<div id="footer">
 		Copyright &copy; <?php echo date('Y'); ?> by My Company.<br/>

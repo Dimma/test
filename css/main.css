@@ -265,39 +265,3 @@ div.breadcrumbs span
 {
 	color:red;
 }
-
-#chat {
-	background-color: white;
-	border: 4px solid #298dcd;
-	position: absolute;
-	right: 200px;
-	top: 155px;
-}
-
-#Messages_content {
-	margin: 5px 10px;
-	width: 390px;
-}
-
-.chatInput {
-	height: 215px;
-	padding: 25px;
-}
-
-.submitInput {
-	border-top: 4px solid #298dcd;
-	padding: 10px;
-}
-
-#arrow {
-	background: white;
-	border-right: 4px solid #298dcd;
-	float: left;
-	height: 331px;
-	width: 10px;
-}
-
-#chatWindow {
-	display: none;
-	width: 500px;
-}

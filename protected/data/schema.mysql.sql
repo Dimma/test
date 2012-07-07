@@ -60,6 +60,10 @@ CREATE TABLE tbl_chat
 	author VARCHAR(128) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+ALTER TABLE `tbl_chat` ADD INDEX (`author`);
+ALTER TABLE `tbl_user` ADD INDEX (`username`);
+ALTER TABLE `tbl_chat` ADD FOREIGN KEY (`author`) REFERENCES `idntesttask`.`tbl_user` (`username`);
+
 INSERT INTO tbl_lookup (name, type, code, position) VALUES ('Draft', 'PostStatus', 1, 1);
 INSERT INTO tbl_lookup (name, type, code, position) VALUES ('Published', 'PostStatus', 2, 2);
 INSERT INTO tbl_lookup (name, type, code, position) VALUES ('Archived', 'PostStatus', 3, 3);
